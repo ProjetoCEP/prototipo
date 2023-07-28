@@ -20,7 +20,7 @@ def home():
     return render_template('home.html', textFromBackend=welcomeText)
 
 ## API: Obter coordenadas geográficas a partir de endereço
-@app.route('/api/find', methods=['GET'])
+@app.route('/api/find', methods=['POST'])
 def api_find():
     coordinates_service = FindCoordinates()
     address = request.form.get("address")
