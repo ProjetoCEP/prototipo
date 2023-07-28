@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, render_template, request
 import json
 
-from services.AddressHash import AddressHash
+from services.AddressCode import AddressCode
 from services.FindCoordinates import FindCoordinates
 from settings import SECRET_KEY
 
@@ -33,18 +33,27 @@ def api_find():
 @app.route('/api/gerar', methods=['POST'])
 def api_gerar():
     coordinates_service = FindCoordinates()
-    hash_service = AddressHash()
+    code_service = AddressCode()
 
-    user_address = request.form.get("address")
-    user_landmark = request.form.get("landmark")
+    user_address = request.form.get("address") if ("address" in request.form) else ""
+    user_landmark = request.form.get("landmark") if ("landmark" in request.form) else ""
+
     coordinates_response = coordinates_service.get_coordinates_from_address(address=user_address)
 
-    hash_result = {}
+    code_result = {}
     if (("success" in coordinates_response) and (coordinates_response["success"] is True)):
         coordinates_dict = coordinates_response["result"]
-        hash_result = hash_service.generate_hash(coordinate_lat=coordinates_dict["lat"], coordinate_lon=coordinates_dict["lon"], address_landmark=user_landmark, export_binary=False)
+        code_result = code_service.generate_code(coordinate_lat=coordinates_dict["lat"], coordinate_lon=coordinates_dict["lon"], address_landmark=user_landmark)
 
-    return jsonify(hash_result)
+    return jsonify(code_result)
+
+## API: Decrypt novo CEP
+@app.route('/api/decrypt', methods=['POST'])
+def api_decrypt():
+    code_service = AddressCode()
+    decrypt_result = code_service.decrypt_code(code=request.form.get("code"))
+
+    return jsonify(decrypt_result)
 
 
 # Run
