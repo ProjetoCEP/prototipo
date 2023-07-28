@@ -7,9 +7,8 @@ from settings import SECRET_KEY
 
 
 # Initialization
-
-## Set Flask
 app = Flask(__name__)
+app_version = "0.1.0"
 app.config['SECRET_KEY'] = SECRET_KEY
 
 # Routes
@@ -49,7 +48,5 @@ def api_gerar():
 
 
 # Run
-
-## Start the Externally Visible Server, with Debug mode enabled
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
