@@ -43,13 +43,14 @@ def api_gerar():
     user_address = request.form.get("address") if ("address" in request.form) else ""
     user_landmark = request.form.get("landmark") if ("landmark" in request.form) else ""
 
-    coordinates_response = coordinates_service.get_coordinates_from_address(address=user_address)
-
     code_result = {}
-    if (("success" in coordinates_response) and (coordinates_response["success"] is True)):
-        coordinates_dict = coordinates_response["result"]
-        code_result = code_service.generate_code(coordinate_lat=coordinates_dict["lat"], coordinate_lon=coordinates_dict["lon"], address_landmark=user_landmark)
-
+    if ((request.form.get("lat") is not None) and (request.form.get("lon") is not None)):
+        code_result = code_service.generate_code(coordinate_lat=request.form.get("lat"), coordinate_lon=request.form.get("lon"), address_landmark=user_landmark)
+    else:
+        coordinates_response = coordinates_service.get_coordinates_from_address(address=user_address)
+        if (("success" in coordinates_response) and (coordinates_response["success"] is True)):
+            coordinates_dict = coordinates_response["result"]
+            code_result = code_service.generate_code(coordinate_lat=coordinates_dict["lat"], coordinate_lon=coordinates_dict["lon"], address_landmark=user_landmark)
     return jsonify(code_result)
 
 ## API: Decode novo CEP
