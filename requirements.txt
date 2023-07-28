@@ -2,3 +2,5 @@ flask
 python-decouple
 requests
 geopy
+pytz
+SQLAlchemy

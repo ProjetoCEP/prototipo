@@ -1,4 +1,6 @@
 from flask import Flask, jsonify, render_template, request
+from sqlalchemy import create_engine
+from models.Cepx import Base
 import json
 
 from services.AddressCode import AddressCode
@@ -10,6 +12,9 @@ from settings import SECRET_KEY
 app = Flask(__name__)
 app_version = "0.1.0"
 app.config['SECRET_KEY'] = SECRET_KEY
+
+engine = create_engine("sqlite:///datacode.db")
+Base.metadata.create_all(engine)
 
 # Routes
 

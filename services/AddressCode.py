@@ -1,6 +1,7 @@
 import base64
 import json
 from geopy.geocoders import Nominatim
+from database.NewDbCode import AcessDbForInsert
 
 class AddressCode:
     algorithm = "base64"
@@ -19,6 +20,8 @@ class AddressCode:
 
             final_code = base64.b64encode(address_encoded)
             final_code_str = final_code.decode("UTF-8")
+
+            db_acess = AcessDbForInsert(final_code_str).InsertCode()
 
             # @TODO: Testar decrypt, antes de retornar, para validar o resultado
 
