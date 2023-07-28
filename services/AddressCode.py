@@ -21,7 +21,11 @@ class AddressCode:
             final_code = base64.b64encode(address_encoded)
             final_code_str = final_code.decode("UTF-8")
 
-            db_acess = AcessDbForInsert(final_code_str).InsertCode()
+            try:
+                db_acess = AcessDbForInsert(final_code_str).InsertCode()
+            except Exception as err:
+                print("Ocorreu um erro ao inserir os dados na base de dados.")
+                print(err)
 
             # @TODO: Testar decrypt, antes de retornar, para validar o resultado
 
