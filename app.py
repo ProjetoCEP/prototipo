@@ -30,7 +30,7 @@ def api_find():
     )
 
 ## API: Gerar novo CEP
-@app.route('/api/gerar', methods=['GET'])
+@app.route('/api/gerar', methods=['POST'])
 def api_gerar():
     coordinates_service = FindCoordinates()
     hash_service = AddressHash()
