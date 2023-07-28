@@ -47,13 +47,13 @@ def api_gerar():
 
     return jsonify(code_result)
 
-## API: Decrypt novo CEP
-@app.route('/api/decrypt', methods=['POST'])
-def api_decrypt():
+## API: Decode novo CEP
+@app.route('/api/ler', methods=['POST'])
+def api_decode():
     code_service = AddressCode()
-    decrypt_result = code_service.decrypt_code(code=request.form.get("code"))
+    decode_result = code_service.get_data_from_code(code=request.form.get("code"))
 
-    return jsonify(decrypt_result)
+    return jsonify(decode_result)
 
 
 # Run

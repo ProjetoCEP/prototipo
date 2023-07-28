@@ -28,13 +28,15 @@ class AddressCode:
             print(err)
             return {"success": False, "message": "Ocorreu um erro ao gerar o código. Favor contactar os desenvolvedores."}
 
-    def decrypt_code(self, code, algorithm = None):
+    def get_data_from_code(self, code, algorithm = None):
         if algorithm == None:
             algorithm = self.algorithm
 
         try:
             data_byte = base64.b64decode(code).decode("UTF-8")
             data_dict = json.loads(data_byte)
+
+            # @TODO: Buscar CEP já existente para esta região, caso aplicável
 
             output = {
                 "lat": data_dict[0],
