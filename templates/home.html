@@ -6,10 +6,49 @@
     <meta name="description" content="">
     <meta name="theme-color" content="#000000">
     <title>Hackathon</title>
+    <link rel="stylesheet" href="main.css">
+
+    <script src="./node_modules/preline/dist/preline.js"></script>
 </head>
 <body>
 
-    <p>{{ textFromBackend }}</p>
+    <p class="text_from_backend">{{ textFromBackend }}</p>
+<header>
+    <h1>gerador de cep</h1>
+</header>
+ 
+<section class="inputs_home">
+    <p class="text_up_input">Endereço:</p>
+    <input type="text" name="Endereço" id="endereco" placeholder="Digite o seu endereço">
+    <p class="text_up_input">Latitude:</p>
+    <input type="text" name="Latitude" id="lat" placeholder="Digite a sua latitude">
+    <p class="text_up_input">Longitude:</p>
+    <input type="text" name="Longitude" id="long" placeholder="Digite a sua longitude">
+    <p class="text_up_input">Ponto de referencia:</p>
+    <input type="text" name="Ponto de referencia" id="p_ref" placeholder="Digite um ponto de referencia">
+</section>
+
+
+<div class="flex">
+    <input type="radio" name="hs-default-radio">
+    <label for="hs-default-radio">Formato antigo</label>
+  </div>
+  
+  <div class="flex">
+    <input type="radio" name="hs-default-radio" checked>
+    <label for="hs-checked-radio">Novo formato(cepX)</label>
+  </div>
+
+
+<article>
+    <img class="imagem_home" src="/templates/images/map1.png" alt="">
+    <input class="input_result" type="text"><br>
+    <a href="#" class="button" title="Botão">Botão</a>
+</article>
+
+
+
+
 
 </body>
 </html>

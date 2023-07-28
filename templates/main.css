@@ -1,0 +1,54 @@
+body{
+    margin:0;
+}
+.text_from_backend{
+    display: none;
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.inputs_home input{
+    display: flex;
+    margin: auto;
+    margin-bottom: 1em;
+    padding: 1em 7em;
+    border: solid 3px;
+    border-radius: 10px;
+    border-color: #0367CB;
+    font-size: 15px;
+}
+.button {
+    display: grid;
+    background-image: linear-gradient(to right,#0367CB 55% , black );
+    text-align: center;
+    padding: 0.9em;
+    margin:0.2em 7em;
+    border-radius: 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+  }
+.imagem_home{
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+.input_result{
+    display: flex;
+    border: solid 3px;
+    padding: 1em 8em;
+    border-radius: 10px;
+    margin: auto;
+}
+.text_up_input{
+    text-transform: uppercase;
+    padding-left: 1em;
+    margin: 0;
+
+}
+.flex{
+    margin: 15px;
+}
