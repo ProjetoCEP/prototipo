@@ -25,7 +25,7 @@ class AddressCode:
 
             # @TODO: Testar decrypt, antes de retornar, para validar o resultado
 
-            return {"sucess": True, "format": "string", "code": final_code_str, "algorithm": self.algorithm, "message": "Código gerado com sucesso."}
+            return {"success": True, "format": "string", "code": final_code_str, "algorithm": self.algorithm, "message": "Código gerado com sucesso."}
 
         except Exception as err:
             print(err)
@@ -61,7 +61,7 @@ class AddressCode:
                     "landmark": data_dict[2] or "",
                 }
 
-            return {"sucess": True, "result": output, "algorithm": self.algorithm, "message": "Dados retornados com sucesso."}
+            return {"success": True, "result": output, "algorithm": self.algorithm, "message": "Dados retornados com sucesso."}
 
         except Exception as err:
             print(err)
