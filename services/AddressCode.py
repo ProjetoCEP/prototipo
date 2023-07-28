@@ -2,6 +2,7 @@ import base64
 import json
 from geopy.geocoders import Nominatim
 from database.NewDbCode import AcessDbForInsert
+from database.FindCepxOnDb import FindCepx
 
 class AddressCode:
     algorithm = "base64"
@@ -21,11 +22,17 @@ class AddressCode:
             final_code = base64.b64encode(address_encoded)
             final_code_str = final_code.decode("UTF-8")
 
+            finder = FindCepx(final_code_str)
+
+            try:
+                if (finder.SearchCode()):
+                    return {"msg": "Não é possível cadastrar pois o código já existe", "codigo": final_code_str}
+            except:
+                return {"msg": "Ocorreu um erro ao consultar a base de dados."}
             try:
                 db_acess = AcessDbForInsert(final_code_str).InsertCode()
             except Exception as err:
-                print("Ocorreu um erro ao inserir os dados na base de dados.")
-                print(err)
+                return {"msg": "Ocorreu um erro ao inserir os dados na base de dados."}
 
             # @TODO: Testar decrypt, antes de retornar, para validar o resultado
 
