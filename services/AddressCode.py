@@ -1,6 +1,6 @@
 import base64
 import json
-
+from geopy.geocoders import Nominatim
 
 class AddressCode:
     algorithm = "base64"
@@ -36,13 +36,27 @@ class AddressCode:
             data_byte = base64.b64decode(code).decode("UTF-8")
             data_dict = json.loads(data_byte)
 
-            # @TODO: Buscar CEP já existente para esta região, caso aplicável
+            latitude = data_dict[0]
+            longitude = data_dict[1]
 
-            output = {
-                "lat": data_dict[0],
-                "lon": data_dict[1],
-                "landmark": data_dict[2] or "",
-            }
+            geolocator = Nominatim(user_agent="geoapiExemplo")
+            location = geolocator.reverse((latitude, longitude), exactly_one=True)
+            address = location.raw.get("address", {})
+            cep = address.get("postcode")
+
+            if cep:
+                output = {
+                    "lat": data_dict[0],
+                    "lon": data_dict[1],
+                    "landmark": data_dict[2] or "",
+                    "cep": cep
+                }
+            else:
+                output = {
+                    "lat": data_dict[0],
+                    "lon": data_dict[1],
+                    "landmark": data_dict[2] or "",
+                }
 
             return {"sucess": True, "result": output, "algorithm": self.algorithm, "message": "Dados retornados com sucesso."}
 
