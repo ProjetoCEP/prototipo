@@ -52,3 +52,65 @@ h1{
 .flex{
     margin: 15px;
 }
+
+.button2{
+    display: grid;
+    background-image: linear-gradient(to right,#0367CB 55% , black );
+    text-align: center;
+    padding: 0.9em;
+    margin:0.2em ;
+    border-radius: 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+@media (min-width: 600px)
+{
+    .text_up_input{
+        padding-left: 8em;
+    }
+
+}
+@media (min-width: 900px) {
+    .inputs_home input{
+        margin-left:8em ;
+    }
+    .button{
+       max-width:300px;
+       display: flex;
+       justify-content: center;
+       margin-left: 8em;
+    }
+    .button2{
+        max-width:300px;
+        display: flex;
+        justify-content: center;
+        margin-left: 30em;
+    }
+    .flex{
+        margin-left: 8em;
+    }
+    .imagem_home{
+        position: absolute;
+       left: 600px;
+       top: 100px
+       
+    }
+    .input_result{
+        padding-left: 15em;
+        padding-right: 15em;
+        margin-right: 2em;
+    }
+}
+@media (min-width: 1200px) {
+    .input_result{  
+     padding-left: 25em;
+     padding-right: 25em;
+     margin-right: 10em;
+    }
+    .button2{
+        margin-left:50em;  
+    }
+}
