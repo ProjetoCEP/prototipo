@@ -99,18 +99,26 @@ h1{
        
     }
     .input_result{
-        padding-left: 15em;
-        padding-right: 15em;
-        margin-right: 2em;
+        padding-left: 10em;
+        padding-right: 10em;
+        margin-right: 10%;
     }
 }
 @media (min-width: 1200px) {
     .input_result{  
-     padding-left: 25em;
-     padding-right: 25em;
-     margin-right: 10em;
+     padding-left: 15em;
+     padding-right: 15em;
+     margin-right: 17%;
     }
     .button2{
-        margin-left:50em;  
+        margin-left:55%;  
     }
+}
+@media (min-width: 1600px) {
+    .input_result{  
+        padding-left: 32em;
+        padding-right: 32em;
+        margin-right: 7em;
+       }
+       
 }
