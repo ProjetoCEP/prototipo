@@ -34,8 +34,6 @@ class AddressCode:
             except Exception as err:
                 return {"msg": "Ocorreu um erro ao inserir os dados na base de dados."}
 
-            # @TODO: Testar decrypt, antes de retornar, para validar o resultado
-
             return {"success": True, "format": "string", "code": final_code_str, "algorithm": self.algorithm, "message": "Código gerado com sucesso."}
 
         except Exception as err:
