@@ -24,6 +24,11 @@ def home():
     welcomeText = "Hello, World."
     return render_template('home.html', textFromBackend=welcomeText)
 
+## Verification page
+@app.route('/validCep', methods=['GET'])
+def valid():
+    return render_template('validarcep.html')
+
 ## API: Obter coordenadas geográficas a partir de endereço
 @app.route('/api/find/<string:address>', methods=['GET'])
 def api_find(address):

@@ -16,18 +16,18 @@
     <meta name="theme-color" content="#000000">
 
     <title>Hackathon</title>
-    <link rel="stylesheet" href="main2.css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}"> 
 </head>
 
 <body>
     <h1>validar cep</h1> 
 
-        <a class="botao_muda_pagina" href="/templates/home.html">gerar cep</a>
+        <a class="botao_muda_pagina" href="/">gerar cep</a>
 
 
     <div id="map"></div>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <p class="text_from_backend">{{ textFromBackend }}</p>
 <header>
    
