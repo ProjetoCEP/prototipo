@@ -25,11 +25,9 @@ def home():
     return render_template('home.html', textFromBackend=welcomeText)
 
 ## API: Obter coordenadas geográficas a partir de endereço
-@app.route('/api/find', methods=['POST'])
-def api_find():
+@app.route('/api/find/<string:address>', methods=['GET'])
+def api_find(address):
     coordinates_service = FindCoordinates()
-    address = request.form.get("address")
-
     return jsonify(
         coordinates_service.get_coordinates_from_address(address=address)
     )
@@ -54,10 +52,10 @@ def api_gerar():
     return jsonify(code_result)
 
 ## API: Decode novo CEP
-@app.route('/api/ler', methods=['POST'])
-def api_decode():
+@app.route('/api/ler/<string:code>', methods=['GET'])
+def api_decode(code):
     code_service = AddressCode()
-    decode_result = code_service.get_data_from_code(code=request.form.get("code"))
+    decode_result = code_service.get_data_from_code(code=code)
 
     return jsonify(decode_result)
 
