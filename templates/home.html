@@ -17,7 +17,8 @@
 
     <title>Hackathon</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script> 
 </head>
 
 <body>
@@ -58,6 +59,8 @@
   
 
   <a href="#" class="button" id="sendButton" title="Botão">gerar</a>
+
+  <div id="qrcode" class="qrcode"></div>
 </form>
 <article>
 
