@@ -16,6 +16,7 @@
     <meta name="theme-color" content="#000000">
 
     <title>Hackathon</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> 
 </head>
 
@@ -33,6 +34,7 @@
 
  
 <section class="inputs_home">
+    <form id="gerar_cepx">
     <p class="text_up_input">Endereço:</p>
     <input type="text" name="Endereço" id="endereco" placeholder="Digite o seu endereço">
     <p class="text_up_input">Latitude:</p>
@@ -40,11 +42,11 @@
     <p class="text_up_input">Longitude:</p>
     <input type="text" name="Longitude"id="longitude" placeholder="longitude">
     <p class="text_up_input">Ponto de referencia:</p>
-    <input type="text" name="Ponto de referencia" id="p_ref" placeholder="Digite um ponto de referencia">
+    <input type="text" name="Ponto de referencia" id="p_ref" placeholder="Digite um ponto de referencia">    
 </section>
 
 <div class="flex">
-    <input type="radio" name="hs-default-radio">
+    <input type="radio" name="hs-default-radio" disabled>
     <label for="hs-default-radio">Formato antigo</label>
   </div>
   
@@ -55,12 +57,13 @@
 
   
 
-  <a href="#" class="button" title="Botão">gerar</a>
+  <a href="#" class="button" id="sendButton" title="Botão">gerar</a>
+</form>
 <article>
 
-    <input class="input_result" type="text"><br>
+    <input class="input_result" id="result_input" type="text"><br>
     <a href="#" class="button2"  title="Botão">copiar</a>
 </article>
-
+<script src="{{ url_for('static', filename='js/post.js') }}"></script>
 </body>
 </html>

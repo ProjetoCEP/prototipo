@@ -26,7 +26,7 @@ class AddressCode:
 
             try:
                 if (finder.SearchCode()):
-                    return {"msg": "Não é possível cadastrar pois o código já existe", "codigo": final_code_str}
+                    return {"msg": "Não é possível cadastrar pois o código já existe", "code": final_code_str}
             except:
                 return {"msg": "Ocorreu um erro ao consultar a base de dados."}
             try:
