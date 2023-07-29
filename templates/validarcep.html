@@ -11,6 +11,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
    crossorigin=""></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <meta name="description" content="">
     <meta name="theme-color" content="#000000">
@@ -27,7 +28,7 @@
 
     <div id="map"></div>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/get.js') }}"></script>
     <p class="text_from_backend">{{ textFromBackend }}</p>
 <header>
    
@@ -41,7 +42,7 @@
 </section>
 
 
-  <a href="#" class="button" title="Botão">Validar</a>
+  <a href="#" class="button" id="validButton" title="Botão">Validar</a>
 <article>
 </article>
 
